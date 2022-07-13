@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header class="nav-menu">
+            <div id="main-menu"></div>
+        </header>
+
+        <div id="div-registration">
+        </div>
+
+        <div id="counter"></div>
+        <form action="" id="login">
+    </div>
+
+
+    <script>
+        var main = document.getElementById('main-menu')
+        main.style.width = "100%"
+        main.style.height = "50px"
+        main.style.display = "flex"
+        main.style.justifyContent  = "space-around"
+
+
+
+        var divRegistration = document.getElementById('div-registration')
+        divRegistration.style.marginTop  = "20px"
+        divRegistration.style.marginLeft  = "30%"
+        divRegistration.style.width = "40%"
+        divRegistration.style.height ="auto"
+        divRegistration.style.alignItems  = "center"
+        divRegistration.style.display  = "flex"
+        divRegistration.style.justifyContent = "center"
+        divRegistration.style.flexDirection  = "column"
+
+        var formLogin = document.createElement('form')
+        formLogin.style.width = "60%"
+        formLogin.style.height = "250px"
+        formLogin.style.background = "rgb(19, 38, 92)"
+        formLogin.style.marginBottom = "35px"
+        divRegistration.appendChild(formLogin)
+
+        var userInput = document.createElement('input')
+        userInput.setAttribute('type','text')
+        userInput.setAttribute('placeholder','Username')
+        userInput.style.width = "80%"
+        userInput.style.height = "30px"
+        userInput.style.marginTop = "35px"
+        userInput.style.marginBottom = "5px"
+        userInput.style.marginLeft = "10%"
+        formLogin.appendChild(userInput)
+
+        var paroli = document.createElement("input")
+        paroli.setAttribute("type", "password") 
+        paroli.setAttribute("placeholder", "Password")
+        paroli.style.width = "80%"
+        paroli.style.height = "30px"
+        paroli.style.margin = "1% 10%"
+        formLogin.appendChild(paroli)
+
+        var checkbox = document.createElement('input')
+        checkbox.setAttribute('type','checkbox')
+        checkbox.style.marginLeft = "10%"
+        formLogin.appendChild(checkbox)
+
+        var txt = document.createElement('label')
+        txt.textContent = "Remember Me"
+        txt.style.color = 'rgb(255,250,250)'
+        txt.style.marginLeft = "5px"
+        formLogin.appendChild(txt)
+
+        var btn = document.createElement("button")
+        btn.textContent = "sumbit"
+        btn.style.color ='rgb(255,250,250)'
+        btn.style.background = 'rgb(0, 0, 51)'
+        btn.style.width= '40%'
+        btn.style.height ='30px'
+        btn.style.margin = "10% 30%"
+        btn.style.borderRadius = "2px"
+        formLogin.appendChild(btn)
+
+
+        userInput.addEventListener('keydown',textChange)
+
+
+
+        var counter  = localStorage.getItem('counter');
+        var newValue;
+        if(!counter){  newValue = 1;
+        }else {
+            newValue = parseInt (counter) + 1;
+        }
+
+        localStorage.setItem('counter', newValue);
+        document.getElementById('counter').textContent =  localStorage.getItem('counter');
+    </script>
+</body>
+</html>
